@@ -1,17 +1,18 @@
 console.log('hello world')
 
-function add(a, b) {
-    return a + b;
-};
-
-function subtract(a, b) {
-    return a - b;
-};
-
-function multiply(a, b) {
-    return a * b;
-};
-
-function divide(a, b) {
-    return a / b;
-};
+function mathOperations(operator, firstNum, secondNum) {
+    switch(operator) {
+        case 'add':
+            return firstNum + secondNum;
+            break;
+        case 'subtract':
+            return firstNum - secondNum;
+            break;
+        case 'multiply':
+            return firstNum * secondNum;
+            break;
+        case 'divide':
+            return firstNum / secondNum;
+            break;
+    };
+}
