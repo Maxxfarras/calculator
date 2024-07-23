@@ -1,4 +1,6 @@
-console.log('hello world')
+let firstNum;
+let operator;
+let secondNum;
 
 function mathOperations(operator, firstNum, secondNum) {
     switch(operator) {
@@ -15,4 +17,4 @@ function mathOperations(operator, firstNum, secondNum) {
             return firstNum / secondNum;
             break;
     };
-}
+};
