@@ -4,6 +4,8 @@ let CDelete = document.querySelector('#C');
 let DDelete = document.querySelector('#D');
 let period = document.querySelector('#period');
 let equals = document.querySelector('#equals');
+let topDisplay = document.querySelector('#top-display');
+let bottomDisplay = document.querySelector('#bottom-display');
 let firstNum;
 let operator;
 let secondNum;
