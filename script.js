@@ -38,9 +38,11 @@ numbers.forEach(number => {
 
 //click event listeners for operators
 operators.forEach(operator => {
-    let selectedOperator = operator.getAttribute('operator');
+    let selectedOperator = operator.getAttribute('display');
     operator.addEventListener('click', () => {
-        console.log(selectedOperator);
+        topDisplay.textContent = firstNum.join('') + ' ' + selectedOperator;
+        firstNum.length = 0;
+        bottomDisplay.textContent = 0;
     });
 });
 
