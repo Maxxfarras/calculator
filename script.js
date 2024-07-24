@@ -6,7 +6,7 @@ let period = document.querySelector('#period');
 let equals = document.querySelector('#equals');
 let topDisplay = document.querySelector('#top-display');
 let bottomDisplay = document.querySelector('#bottom-display');
-let firstNum;
+let firstNum = [];
 let operator;
 let secondNum;
 
@@ -31,7 +31,8 @@ function mathOperations(operator, firstNum, secondNum) {
 numbers.forEach(number => {
     let selectedNumber = number.getAttribute('number');
     number.addEventListener('click', () => {
-        console.log(selectedNumber);
+        firstNum.push(selectedNumber); //make an array with all numbers
+        bottomDisplay.textContent = firstNum.join(''); //join them into a single string
     });
 });
 
@@ -42,3 +43,5 @@ operators.forEach(operator => {
         console.log(selectedOperator);
     });
 });
+
+topDisplay.textContent = 'hello world'
