@@ -31,6 +31,14 @@ function mathOperations(operator, firstNum, secondNum) {
 numbers.forEach(number => {
     let selectedNumber = number.getAttribute('number');
     number.addEventListener('click', () => {
-        console.log(selectedNumber)
-    })
-})
+        console.log(selectedNumber);
+    });
+});
+
+//click event listeners for operators
+operators.forEach(operator => {
+    let selectedOperator = operator.getAttribute('operator');
+    operator.addEventListener('click', () => {
+        console.log(selectedOperator);
+    });
+});
