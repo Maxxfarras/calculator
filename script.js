@@ -9,6 +9,8 @@ let bottomDisplay = document.querySelector('#bottom-display');
 let firstNum = [];
 let operator;
 let secondNum;
+let wholeOperation;
+let halfOperation;
 
 function mathOperations(operator, firstNum, secondNum) {
     switch(operator) {
@@ -40,17 +42,19 @@ numbers.forEach(number => {
 operators.forEach(operator => {
     let selectedOperator = operator.getAttribute('display');
     operator.addEventListener('click', () => {
-        let secondNum = firstNum.join('') //need fix this secondNum to use it on other functions
-        topDisplay.textContent = firstNum.join('') + ' ' + selectedOperator;
-        firstNum.length = 0;
+        secondNum = firstNum.join('') //secondNum is now the firstNum
+        halfOperation = firstNum.join('') + ' ' + selectedOperator;
+        topDisplay.textContent = halfOperation; //displays firstNum + operator
+        firstNum.length = 0; //reset firstNum
         bottomDisplay.textContent = 0;
     });
 });
 
 equals.addEventListener('click', () => {
-    let selectedOperator = operator.getAttribute('operator') //need fix to object type
-    let result = mathOperations(selectedOperator, firstNum, secondNum)
-    bottomDisplay.textContent = result
+    wholeOperation = halfOperation + ' ' + firstNum.join('') + ' ' + '=';
+    topDisplay.textContent = wholeOperation; 
+    //let result = mathOperations(selectedOperator, firstNum, secondNum); //needs fix still
+    //bottomDisplay.textContent = result
 })
 
 topDisplay.textContent = 'hello world'
