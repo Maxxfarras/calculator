@@ -40,10 +40,17 @@ numbers.forEach(number => {
 operators.forEach(operator => {
     let selectedOperator = operator.getAttribute('display');
     operator.addEventListener('click', () => {
+        let secondNum = firstNum.join('') //need fix this secondNum to use it on other functions
         topDisplay.textContent = firstNum.join('') + ' ' + selectedOperator;
         firstNum.length = 0;
         bottomDisplay.textContent = 0;
     });
 });
+
+equals.addEventListener('click', () => {
+    let selectedOperator = operator.getAttribute('operator') //need fix to object type
+    let result = mathOperations(selectedOperator, firstNum, secondNum)
+    bottomDisplay.textContent = result
+})
 
 topDisplay.textContent = 'hello world'
