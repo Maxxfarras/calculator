@@ -26,3 +26,11 @@ function mathOperations(operator, firstNum, secondNum) {
             break;
     };
 };
+
+//click event listeners for numbers
+numbers.forEach(number => {
+    let selectedNumber = number.getAttribute('number');
+    number.addEventListener('click', () => {
+        console.log(selectedNumber)
+    })
+})
