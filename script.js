@@ -12,20 +12,16 @@ let secondNum;
 let wholeOperation = [];
 let halfOperation;
 
-function mathOperations(operator, firstNum, secondNum) {
+function mathOperations(operator, operandOne, operandTwo) {
     switch(operator) {
         case '+':
-            return firstNum + secondNum;
-            break;
+            return operandOne + operandTwo;
         case '-':
-            return firstNum - secondNum;
-            break;
-        case '*':
-            return firstNum * secondNum;
-            break;
-        case '/':
-            return firstNum / secondNum;
-            break;
+            return operandOne - operandTwo;
+        case 'x':
+            return operandOne * operandTwo;
+        case '÷':
+            return operandOne / operandTwo;
     };
 };
 
@@ -53,14 +49,10 @@ operators.forEach(operator => {
 equals.addEventListener('click', () => {
     wholeOperation = halfOperation + ' ' + firstNum.join('') + ' ' + '=';
     topDisplay.textContent = wholeOperation;
-    wholeOperation.split(' ')
-    //let result = mathOperations(selectedOperator, firstNum, secondNum); //needs fix still
-    //bottomDisplay.textContent = result
+    let parts = wholeOperation.split(' '); //split each character
+    let selectedOperator = parts[1];
+    let operandOne = Number(parts[0]); //convert operands to integers
+    let operandTwo = Number(parts[2]); 
+    let result = mathOperations(selectedOperator, operandOne, operandTwo); 
+    bottomDisplay.textContent = result;
 })
-
-function separateString(string) {
-    let parts = string.split(' ');
-    return parts
-}
-console.log(separateString('5 + 88 ='))
-topDisplay.textContent = 'hello world'
