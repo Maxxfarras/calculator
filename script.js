@@ -25,8 +25,8 @@ function mathOperations(operator, operandOne, operandTwo) {
     };
 };
 
-//click event listeners for numbers
-numbers.forEach(number => {
+//click event listeners for numbers and period
+[period, ...numbers].forEach(number => {
     let selectedNumber = number.getAttribute('number');
     number.addEventListener('click', () => {
         firstNum.push(selectedNumber); //make an array with all numbers
