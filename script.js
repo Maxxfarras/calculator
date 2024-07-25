@@ -9,7 +9,7 @@ let bottomDisplay = document.querySelector('#bottom-display');
 let firstNum = [];
 let operator;
 let secondNum;
-let wholeOperation;
+let wholeOperation = [];
 let halfOperation;
 
 function mathOperations(operator, firstNum, secondNum) {
@@ -52,9 +52,15 @@ operators.forEach(operator => {
 
 equals.addEventListener('click', () => {
     wholeOperation = halfOperation + ' ' + firstNum.join('') + ' ' + '=';
-    topDisplay.textContent = wholeOperation; 
+    topDisplay.textContent = wholeOperation;
+    wholeOperation.split(' ')
     //let result = mathOperations(selectedOperator, firstNum, secondNum); //needs fix still
     //bottomDisplay.textContent = result
 })
 
+function separateString(string) {
+    let parts = string.split(' ');
+    return parts
+}
+console.log(separateString('5 + 88 ='))
 topDisplay.textContent = 'hello world'
