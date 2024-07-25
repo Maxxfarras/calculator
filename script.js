@@ -42,7 +42,7 @@ operators.forEach(operator => {
         halfOperation = firstNum.join('') + ' ' + selectedOperator;
         topDisplay.textContent = halfOperation; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
-        bottomDisplay.textContent = 0;
+        bottomDisplay.textContent = '';
     });
 });
 
@@ -57,6 +57,9 @@ equals.addEventListener('click', () => {
     bottomDisplay.textContent = result;
 })
 
-function reset() {
-    
-}
+//resets all variables, array and display to none
+CDelete.addEventListener('click', () => {
+    [wholeOperation, halfOperation, firstNum, secondNum].forEach(variable => variable.delete);
+    firstNum.length = 0;
+    [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '')
+})
