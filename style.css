@@ -16,6 +16,7 @@ body {
 .display {
     background-color: blanchedalmond;
     text-align: end;
+    height: 78px;
     margin-bottom: 20px;
     padding: 10px;
     font-size: 30px;
@@ -24,6 +25,11 @@ body {
 
 #top-display {
     margin-bottom: 10px;
+}
+
+#top-display,
+#bottom-display {
+    height: 34px;
 }
 
 #left-row {

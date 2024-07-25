@@ -56,3 +56,7 @@ equals.addEventListener('click', () => {
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
     bottomDisplay.textContent = result;
 })
+
+function reset() {
+    
+}
