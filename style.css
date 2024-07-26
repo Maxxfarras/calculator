@@ -1,116 +1,115 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #666666;
+  margin: 0;
+  padding: 0;
+  background-color: #666666;
 }
 
 #calculator {
-    background-color: black;
-    padding: 20px;
-    width: 400px;
-    height: fit-content;
-    margin: 30px auto;
-    border-radius: 30px;
+  background-color: black;
+  padding: 20px;
+  width: 400px;
+  height: fit-content;
+  margin: 30px auto;
+  border-radius: 30px;
 }
 
 .display {
-    background-color: black;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-    text-align: end;
-    height: 78px;
-    margin-bottom: 20px;
-    padding: 10px;
-    font-size: 40px;
-    border-radius: 20px;
+  background-color: black;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  text-align: end;
+  height: 78px;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 40px;
+  border-radius: 20px;
 }
 
 #top-display {
-    margin-bottom: 10px;
-    font-size: 25px;
+  margin-bottom: 10px;
+  font-size: 25px;
 }
 
 #top-display,
 #bottom-display {
-    height: 34px;
+  height: 34px;
 }
 
 #left-row {
-    display: flex;
-    flex-wrap: wrap;
-    row-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 20px;
 }
 
 #right-row {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #equals {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
 #buttons {
-    display: flex;
+  display: flex;
 }
 
 button {
-    width: 87px;
-    height: 87px;
-    font-size: 30px;
-    flex-shrink: 0;
-    border-radius: 100px;
-    border-width: 0;
-    margin: 5px;
-    font-family: 'Courier New', Courier, monospace;
+  width: 87px;
+  height: 87px;
+  font-size: 30px;
+  flex-shrink: 0;
+  border-radius: 100px;
+  border-width: 0;
+  margin: 5px;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .operator,
 #equals {
-    background-color: #FF9500;
-    color: white;
+  background-color: #ff9500;
+  color: white;
 }
 
 #C,
 #D {
-    background-color: #D4D4D2;
+  background-color: #d4d4d2;
 }
 
 .number,
 #period {
-    background-color: #505050;
-    color: white;
+  background-color: #505050;
+  color: white;
 }
 
 header {
-    text-align: center;
-    font-size: 40px;
-    color: white;
-    margin-top: 30px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
+  text-align: center;
+  font-size: 40px;
+  color: white;
+  margin-top: 30px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
 }
 
 footer {
-    height: 85px;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
+  height: 85px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
 }
 
 img {
-    height: 30px;
-    width: auto;
-    margin-right: 10px;
-    justify-self: center;
+  height: 30px;
+  width: auto;
+  margin-right: 10px;
+  justify-self: center;
 }
 
-
 a {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
 }
