@@ -79,7 +79,6 @@ operators.forEach(operator => {
         topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
         bottomDisplay.textContent = ''; //reset bottomDisplay
-         
     });
 });
 
@@ -87,4 +86,9 @@ operators.forEach(operator => {
 CDelete.addEventListener('click', () => {
     [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '');
     clearVariables();
+});
+
+DDelete.addEventListener('click', () => {
+    firstNum.pop(); //delete last element in firstNum
+    bottomDisplay.textContent = firstNum.join('');
 });
