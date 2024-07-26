@@ -43,11 +43,14 @@ operators.forEach(operator => {
         topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
         bottomDisplay.textContent = ''; //reset bottomDisplay
+        if (wholeOperation.length == 2) {
+            equals.addEventListener('click', equalFunction)
+        } 
     });
 });
 
 //click event listener for equal
-equals.addEventListener('click', () => {
+function equalFunction() {
     wholeOperation[2] = joinedNum;
     topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
     let selectedOperator = wholeOperation[1];
@@ -57,7 +60,7 @@ equals.addEventListener('click', () => {
     bottomDisplay.textContent = result; 
     clearVariables();
     joinedNum = result
-});
+}
 
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
@@ -69,4 +72,5 @@ function clearVariables() {
     [wholeOperation, firstNum].forEach(array => array.length = 0)
     delete operator;
     joinedNum = 0;
+    equals.removeEventListener('click', equalFunction);
 };
