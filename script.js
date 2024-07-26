@@ -59,7 +59,12 @@ function equalFunction() {
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
     bottomDisplay.textContent = result; 
     clearVariables();
-    joinedNum = result
+    if (bottomDisplay.textContent == 'NaN') {
+        bottomDisplay.textContent = 'ERROR'
+        joinedNum = 0;
+    } else {
+        joinedNum = result
+    }
 }
 
 //resets all variables, array and display to none
