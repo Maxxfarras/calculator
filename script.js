@@ -42,20 +42,21 @@ operators.forEach(operator => {
         halfOperation = firstNum.join('') + ' ' + selectedOperator;
         topDisplay.textContent = halfOperation; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
-        bottomDisplay.textContent = '';
+        bottomDisplay.textContent = ''; //reset display
     });
 });
 
+//click event listener for equal
 equals.addEventListener('click', () => {
     wholeOperation = halfOperation + ' ' + firstNum.join('') + ' ' + '=';
-    topDisplay.textContent = wholeOperation;
+    topDisplay.textContent = wholeOperation; //display wholeOperation
     let parts = wholeOperation.split(' '); //split each character
     let selectedOperator = parts[1];
     let operandOne = Number(parts[0]); //convert operands to integers
     let operandTwo = Number(parts[2]); 
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
-    bottomDisplay.textContent = result;
-})
+    bottomDisplay.textContent = result; //need to fix so result = firstNum
+});
 
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
