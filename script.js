@@ -29,8 +29,11 @@ function mathOperations(operator, operandOne, operandTwo) {
     let selectedNumber = number.getAttribute('number');
     number.addEventListener('click', () => {
         firstNum.push(selectedNumber); //make an array with all numbers
-        joinedNum = firstNum.join('')
-        bottomDisplay.textContent = joinedNum//join them into a single string
+        joinedNum = firstNum.join('');
+        bottomDisplay.textContent = joinedNum; //join them into a single string
+        if (wholeOperation.length == 2) {
+            equals.addEventListener('click', equalFunction);
+        };
     });
 });
 
@@ -43,13 +46,11 @@ operators.forEach(operator => {
         topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
         bottomDisplay.textContent = ''; //reset bottomDisplay
-        if (wholeOperation.length == 2) {
-            equals.addEventListener('click', equalFunction)
-        } 
+         
     });
 });
 
-//click event listener for equal
+
 function equalFunction() {
     wholeOperation[2] = joinedNum;
     topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
@@ -60,21 +61,21 @@ function equalFunction() {
     bottomDisplay.textContent = result; 
     clearVariables();
     if (bottomDisplay.textContent == 'NaN') {
-        bottomDisplay.textContent = 'ERROR'
+        bottomDisplay.textContent = 'ERROR';
         joinedNum = 0;
     } else {
-        joinedNum = result
-    }
-}
+        joinedNum = result;
+    };
+};
 
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
-    [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '')
-    clearVariables()
-})
+    [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '');
+    clearVariables();
+});
 
 function clearVariables() {
-    [wholeOperation, firstNum].forEach(array => array.length = 0)
+    [wholeOperation, firstNum].forEach(array => array.length = 0);
     delete operator;
     joinedNum = 0;
     equals.removeEventListener('click', equalFunction);
