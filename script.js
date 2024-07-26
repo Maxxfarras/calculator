@@ -67,8 +67,8 @@ function equalFunction() {
     if (wholeOperation.length == 2) {
       equals.addEventListener("click", equalFunction);
     }
-  });
-});
+  })
+})
 
 //click event listeners for operators
 operators.forEach((operator) => {
@@ -79,17 +79,17 @@ operators.forEach((operator) => {
     topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
     firstNum.length = 0; //reset firstNum
     bottomDisplay.textContent = ""; //reset bottomDisplay
-  });
-});
+  })
+})
 
 //resets all variables, array and display to none
 CDelete.addEventListener("click", () => {
   [topDisplay, bottomDisplay].forEach((display) => (display.innerHTML = ""));
   clearVariables();
-});
+})
 
 //deletes the last element in the firstNum array
 DDelete.addEventListener("click", () => {
   firstNum.pop();
   bottomDisplay.textContent = firstNum.join("");
-});
+})
