@@ -32,6 +32,31 @@ function formatNumber(num) {
     };
 };
 
+function clearVariables() {
+    [wholeOperation, firstNum].forEach(array => array.length = 0);
+    delete operator;
+    joinedNum = 0;
+    equals.removeEventListener('click', equalFunction);
+};
+
+function equalFunction() {
+    wholeOperation[2] = joinedNum;
+    topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
+    let selectedOperator = wholeOperation[1];
+    let operandOne = Number(wholeOperation[0]); //convert operands into integers
+    let operandTwo = Number(wholeOperation[2]); 
+    let result = mathOperations(selectedOperator, operandOne, operandTwo); 
+    let roundedNum = formatNumber(result); //format number for 3 decimals
+    bottomDisplay.textContent = roundedNum; 
+    clearVariables();
+    if (bottomDisplay.textContent == 'NaN') {
+        bottomDisplay.textContent = 'ERROR';
+        joinedNum = 0;
+    } else {
+        joinedNum = roundedNum;
+    };
+};
+
 //click event listeners for numbers and period
 [period, ...numbers].forEach(number => {
     let selectedNumber = number.getAttribute('number');
@@ -58,33 +83,8 @@ operators.forEach(operator => {
     });
 });
 
-function equalFunction() {
-    wholeOperation[2] = joinedNum;
-    topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
-    let selectedOperator = wholeOperation[1];
-    let operandOne = Number(wholeOperation[0]); //convert operands into integers
-    let operandTwo = Number(wholeOperation[2]); 
-    let result = mathOperations(selectedOperator, operandOne, operandTwo); 
-    let roundedNum = formatNumber(result); //format number for 3 decimals
-    bottomDisplay.textContent = roundedNum; 
-    clearVariables();
-    if (bottomDisplay.textContent == 'NaN') {
-        bottomDisplay.textContent = 'ERROR';
-        joinedNum = 0;
-    } else {
-        joinedNum = roundedNum;
-    };
-};
-
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
     [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '');
     clearVariables();
 });
-
-function clearVariables() {
-    [wholeOperation, firstNum].forEach(array => array.length = 0);
-    delete operator;
-    joinedNum = 0;
-    equals.removeEventListener('click', equalFunction);
-};
