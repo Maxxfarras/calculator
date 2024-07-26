@@ -7,10 +7,9 @@ let equals = document.querySelector('#equals');
 let topDisplay = document.querySelector('#top-display');
 let bottomDisplay = document.querySelector('#bottom-display');
 let firstNum = [];
+let joinedNum;
 let operator;
-let secondNum;
 let wholeOperation = [];
-let halfOperation;
 
 function mathOperations(operator, operandOne, operandTwo) {
     switch(operator) {
@@ -30,6 +29,7 @@ function mathOperations(operator, operandOne, operandTwo) {
     let selectedNumber = number.getAttribute('number');
     number.addEventListener('click', () => {
         firstNum.push(selectedNumber); //make an array with all numbers
+        joinedNum = firstNum.join('')
         bottomDisplay.textContent = firstNum.join(''); //join them into a single string
     });
 });
@@ -38,29 +38,35 @@ function mathOperations(operator, operandOne, operandTwo) {
 operators.forEach(operator => {
     let selectedOperator = operator.getAttribute('display');
     operator.addEventListener('click', () => {
-        secondNum = firstNum.join('') //secondNum is now the firstNum
-        halfOperation = firstNum.join('') + ' ' + selectedOperator;
-        topDisplay.textContent = halfOperation; //displays firstNum + operator
+        wholeOperation[0] = joinedNum;
+        wholeOperation[1] = selectedOperator
+        topDisplay.textContent = wholeOperation[0] + ' ' + wholeOperation[1]; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
+        delete joinedNum; //reset joinedNum
         bottomDisplay.textContent = ''; //reset display
     });
 });
 
 //click event listener for equal
 equals.addEventListener('click', () => {
-    wholeOperation = halfOperation + ' ' + firstNum.join('') + ' ' + '=';
-    topDisplay.textContent = wholeOperation; //display wholeOperation
-    let parts = wholeOperation.split(' '); //split each character
-    let selectedOperator = parts[1];
-    let operandOne = Number(parts[0]); //convert operands to integers
-    let operandTwo = Number(parts[2]); 
+    wholeOperation[2] = joinedNum;
+    topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
+    let selectedOperator = wholeOperation[1];
+    let operandOne = Number(wholeOperation[0]); //convert operands into integers
+    let operandTwo = Number(wholeOperation[2]); 
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
-    bottomDisplay.textContent = result; //need to fix so result = firstNum
+    bottomDisplay.textContent = result.toString(); 
+    clearVariables();
 });
 
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
-    [wholeOperation, halfOperation, firstNum, secondNum].forEach(variable => variable.delete);
-    firstNum.length = 0;
+    clearVariables()
     [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '')
 })
+
+function clearVariables() {
+    [wholeOperation, firstNum].forEach(array => array.length = 0)
+    [joinedNum, operator].forEach(variable => delete variable)
+console.log(joinedNum)
+}
