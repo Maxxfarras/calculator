@@ -24,6 +24,14 @@ function mathOperations(operator, operandOne, operandTwo) {
     };
 };
 
+function formatNumber(num) {
+    if(Number.isInteger(num)) {
+        return num.toString();
+    } else {
+        return num.toFixed(3);
+    };
+};
+
 //click event listeners for numbers and period
 [period, ...numbers].forEach(number => {
     let selectedNumber = number.getAttribute('number');
@@ -50,7 +58,6 @@ operators.forEach(operator => {
     });
 });
 
-
 function equalFunction() {
     wholeOperation[2] = joinedNum;
     topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]} ${wholeOperation[2]} =`; //display wholeOperation
@@ -58,13 +65,14 @@ function equalFunction() {
     let operandOne = Number(wholeOperation[0]); //convert operands into integers
     let operandTwo = Number(wholeOperation[2]); 
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
-    bottomDisplay.textContent = result; 
+    let roundedNum = formatNumber(result); //format number for 3 decimals
+    bottomDisplay.textContent = roundedNum; 
     clearVariables();
     if (bottomDisplay.textContent == 'NaN') {
         bottomDisplay.textContent = 'ERROR';
         joinedNum = 0;
     } else {
-        joinedNum = result;
+        joinedNum = roundedNum;
     };
 };
 
