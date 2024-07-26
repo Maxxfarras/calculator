@@ -59,6 +59,7 @@ button {
     border-radius: 100px;
     border-width: 0;
     margin: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .operator {

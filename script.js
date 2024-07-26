@@ -88,7 +88,8 @@ CDelete.addEventListener('click', () => {
     clearVariables();
 });
 
+//deletes the last element in the firstNum array
 DDelete.addEventListener('click', () => {
-    firstNum.pop(); //delete last element in firstNum
+    firstNum.pop(); 
     bottomDisplay.textContent = firstNum.join('');
 });
