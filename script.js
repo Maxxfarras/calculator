@@ -7,7 +7,7 @@ let equals = document.querySelector('#equals');
 let topDisplay = document.querySelector('#top-display');
 let bottomDisplay = document.querySelector('#bottom-display');
 let firstNum = [];
-let joinedNum;
+let joinedNum = 0;
 let operator;
 let wholeOperation = [];
 
@@ -30,7 +30,7 @@ function mathOperations(operator, operandOne, operandTwo) {
     number.addEventListener('click', () => {
         firstNum.push(selectedNumber); //make an array with all numbers
         joinedNum = firstNum.join('')
-        bottomDisplay.textContent = firstNum.join(''); //join them into a single string
+        bottomDisplay.textContent = joinedNum//join them into a single string
     });
 });
 
@@ -40,10 +40,9 @@ operators.forEach(operator => {
     operator.addEventListener('click', () => {
         wholeOperation[0] = joinedNum;
         wholeOperation[1] = selectedOperator
-        topDisplay.textContent = wholeOperation[0] + ' ' + wholeOperation[1]; //displays firstNum + operator
+        topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
         firstNum.length = 0; //reset firstNum
-        delete joinedNum; //reset joinedNum
-        bottomDisplay.textContent = ''; //reset display
+        bottomDisplay.textContent = ''; //reset bottomDisplay
     });
 });
 
@@ -55,18 +54,19 @@ equals.addEventListener('click', () => {
     let operandOne = Number(wholeOperation[0]); //convert operands into integers
     let operandTwo = Number(wholeOperation[2]); 
     let result = mathOperations(selectedOperator, operandOne, operandTwo); 
-    bottomDisplay.textContent = result.toString(); 
+    bottomDisplay.textContent = result; 
     clearVariables();
+    joinedNum = result
 });
 
 //resets all variables, array and display to none
 CDelete.addEventListener('click', () => {
-    clearVariables()
     [topDisplay, bottomDisplay].forEach(display => display.innerHTML = '')
+    clearVariables()
 })
 
 function clearVariables() {
     [wholeOperation, firstNum].forEach(array => array.length = 0)
-    [joinedNum, operator].forEach(variable => delete variable)
-console.log(joinedNum)
-}
+    delete operator;
+    joinedNum = 0;
+};
