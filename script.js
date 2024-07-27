@@ -49,7 +49,7 @@ function equalFunction() {
   let roundedNum = formatNumber(result); //format number for 3 decimals
   bottomDisplay.textContent = roundedNum;
   clearVariables();
-  if (bottomDisplay.textContent == "NaN") {
+  if ((bottomDisplay.textContent == "NaN") || (roundedNum.length >= 12)){
     bottomDisplay.textContent = "ERROR";
     joinedNum = 0;
   } else {
