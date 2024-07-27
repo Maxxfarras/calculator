@@ -2,14 +2,21 @@ body {
   margin: 0;
   padding: 0;
   background-color: #505050;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 #calculator {
+  align-self: center;
   background-color: black;
   padding: 20px;
   width: 400px;
   height: fit-content;
-  margin: 30px auto;
   border-radius: 30px;
 }
 
@@ -83,8 +90,13 @@ button {
 }
 
 header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85px;
+  margin-bottom: auto;
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
   color: white;
   margin-top: 30px;
   font-family: "Courier New", Courier, monospace;
