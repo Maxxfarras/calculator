@@ -61,9 +61,17 @@ function numberFunction(selectedNumber) {
   firstNum.push(selectedNumber); //make an array with all numbers
   joinedNum = firstNum.join('');
   bottomDisplay.textContent = joinedNum; //join them into a single string
-  if (wholeOperation.length == 2) {
+  if (wholeOperation.length == 2) { // to avoid errors
     equals.addEventListener("click", equalFunction);
   }
+}
+
+function operatorFunction(selectedOperator) {
+  wholeOperation[0] = joinedNum;
+  wholeOperation[1] = selectedOperator;
+  topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
+  firstNum.length = 0; //reset firstNum
+  bottomDisplay.textContent = ""; //reset bottomDisplay
 }
 
 //click event listeners for numbers and period
@@ -75,13 +83,7 @@ function numberFunction(selectedNumber) {
 //click event listeners for operators
 operators.forEach((operator) => {
   let selectedOperator = operator.getAttribute("display");
-  operator.addEventListener("click", () => {
-    wholeOperation[0] = joinedNum;
-    wholeOperation[1] = selectedOperator;
-    topDisplay.textContent = `${wholeOperation[0]} ${wholeOperation[1]}`; //displays firstNum + operator
-    firstNum.length = 0; //reset firstNum
-    bottomDisplay.textContent = ""; //reset bottomDisplay
-  })
+  operator.addEventListener("click", () => operatorFunction(selectedOperator));
 })
 
 //resets all variables, array and display to none
