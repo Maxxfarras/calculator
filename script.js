@@ -61,8 +61,10 @@ function numberFunction(selectedNumber) {
   firstNum.push(selectedNumber); //make an array with all numbers
   joinedNum = firstNum.join('');
   bottomDisplay.textContent = joinedNum; //join them into a single string
-  if (wholeOperation.length == 2) { // to avoid errors
+  if (wholeOperation.length == 2) { // to avoid undefined errors
     equals.addEventListener("click", equalFunction);
+  } else if (firstNum.length >= 8) { //to avoid overflow errors
+    firstNum.pop(selectedNumber);
   }
 }
 
