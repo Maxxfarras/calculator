@@ -57,17 +57,19 @@ function equalFunction() {
   }
 }
 
+function numberFunction(selectedNumber) {
+  firstNum.push(selectedNumber); //make an array with all numbers
+  joinedNum = firstNum.join('');
+  bottomDisplay.textContent = joinedNum; //join them into a single string
+  if (wholeOperation.length == 2) {
+    equals.addEventListener("click", equalFunction);
+  }
+}
+
 //click event listeners for numbers and period
 [period, ...numbers].forEach((number) => {
   let selectedNumber = number.getAttribute("number");
-  number.addEventListener("click", () => {
-    firstNum.push(selectedNumber); //make an array with all numbers
-    joinedNum = firstNum.join("");
-    bottomDisplay.textContent = joinedNum; //join them into a single string
-    if (wholeOperation.length == 2) {
-      equals.addEventListener("click", equalFunction);
-    }
-  })
+  number.addEventListener("click", () => numberFunction(selectedNumber));
 })
 
 //click event listeners for operators
